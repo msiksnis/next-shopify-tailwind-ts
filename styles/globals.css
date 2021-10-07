@@ -1,0 +1,17 @@
+@import "./base.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply h-full mx-auto max-w-[2460px];
+  }
+}
+
+.layoutA {
+  & > *:nth-child(6n + 1),
+  & > *:nth-child(6n + 5) {
+    @apply col-span-2 row-span-2;
+  }
+}

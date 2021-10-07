@@ -1,6 +1,6 @@
 import { AppProps } from "next/app";
 import { FC } from "react";
-import "@assets/main.css";
+import "../styles/globals.css";
 
 const Noop: FC = (children) => <>{children}</>;
 
@@ -11,11 +11,9 @@ function MyApp({
   const Layout = Component.Layout;
 
   return (
-    <>
-      <Layout>
-        <Component {...pageProps} />;
-      </Layout>
-    </>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
   );
 }
 
