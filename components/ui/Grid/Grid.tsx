@@ -8,10 +8,10 @@ interface Props {
 
 const Grid: FC<Props> = ({ children, layout = "A" }) => {
   const rootClassName = cn(
-    "grid grid-cols-1 gap-4 lg:grid-cols-3 lg:grid-rows-2",
+    "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2",
     {
       ["layoutA"]: layout === "A",
-      ["text-blue"]: layout === "B",
+      ["layoutB"]: layout === "B",
     }
   );
   return <div className={rootClassName}>{children}</div>;

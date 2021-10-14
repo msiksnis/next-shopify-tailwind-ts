@@ -1,16 +1,17 @@
 import Head from "next/head";
 import type { InferGetStaticPropsType } from "next";
-import getAlLProducts from "../framework/shopify/product/get-all-products";
-// import getAlLProducts from "@framework/product/get-all-products";
+import { getAllProducts } from "@framework/product";
 import { getConfig } from "@framework/api/config";
 import { Layout } from "@components/common";
 import { ProductCard } from "@components/product";
 import { Grid } from "@components/ui";
+import { Hero } from "@components/ui/Hero/Hero";
+import Marquee from "@components/ui/Marquee/Marquee";
 
 export async function getStaticProps() {
   const config = getConfig();
 
-  const products = await getAlLProducts(config);
+  const products = await getAllProducts(config);
   return {
     props: {
       products,
@@ -30,11 +31,35 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <>
-        <Grid>
+        <div className="mx-44">
+          <Grid>
+            {products.slice(0, 3).map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </Grid>
+        </div>
+        <div className="hidden">
+          <Hero headline="This is Hero section" description="Live Laugh Code" />
+        </div>
+        <div className="hidden">
+          <Marquee>
+            {products.slice(0, 3).map((product) => (
+              <ProductCard key={product.id} variant="slim" product={product} />
+            ))}
+          </Marquee>
+        </div>
+        <div className="hidden">
+          <Grid layout="B">
+            {products.slice(0, 3).map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </Grid>
+        </div>
+        <Marquee variant="secondary">
           {products.slice(0, 3).map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard key={product.id} variant="slim" product={product} />
           ))}
-        </Grid>
+        </Marquee>
       </>
     </div>
   );

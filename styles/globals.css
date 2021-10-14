@@ -12,6 +12,21 @@
 .layoutA {
   & > *:nth-child(6n + 1),
   & > *:nth-child(6n + 5) {
-    @apply col-span-2 row-span-2;
+    @apply lg:col-span-2 lg:row-span-2;
+  }
+}
+
+.layoutB {
+  & > *:nth-child(6n + 2),
+  & > *:nth-child(6n + 4) {
+    @apply lg:col-span-2 lg:row-span-2;
+  }
+}
+
+.blabla {
+  @apply flex;
+
+  & > * {
+    @apply flex-1 px-2 py-4;
   }
 }
