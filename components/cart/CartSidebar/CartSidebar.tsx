@@ -3,10 +3,12 @@ import Link from "next/link";
 import { Bag, Cross } from "@components/icons";
 import cn from "classnames";
 import { useUi } from "@components/ui/context";
+import useCart from "@framework/cart/use-cart";
 
 const CartSidebar: FC = () => {
   const { closeSidebar } = useUi();
   const isEmpty = true;
+  const cart = useCart();
 
   const rootClass = cn("h-full flex flex-col", {
     "bg-secondary text-secondary": isEmpty,

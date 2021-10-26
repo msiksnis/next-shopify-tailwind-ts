@@ -8,7 +8,6 @@ type ReturnType = { products: ProductConnection };
 
 const getAlLProducts = async (config: ApiConfig): Promise<Product[]> => {
   const { data } = await config.fetch<ReturnType>({
-    url: config.apiUrl,
     query: getAlLProductsQuery,
   });
 

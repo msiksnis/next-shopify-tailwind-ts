@@ -44,13 +44,13 @@ const normalizeProductOption = ({
       return output;
     }),
   };
-
-  return { normalizedOptions };
+  return normalizedOptions;
 };
 
 const normalizeProductVariants = ({ edges }: ProductVariantConnection) => {
   return edges.map(({ node }) => {
     const { id, selectedOptions, sku, title, priceV2, compareAtPriceV2 } = node;
+
     return {
       id,
       name: title,
@@ -96,12 +96,11 @@ export function normalizeProduct(productNode: ShopifyProduct): Product {
     price: normalizeProductPrice(priceRange.minVariantPrice),
     options: options
       ? options
-          .filter((option) => option.name !== "Title")
-          .map((option) => normalizeProductOption(option))
+          .filter((o) => o.name !== "Title")
+          .map((o) => normalizeProductOption(o))
       : [],
-    variants: variants ? normalizeProductVariants(variants) : {},
+    variants: variants ? normalizeProductVariants(variants) : [],
     ...rest,
   };
-
   return product;
 }

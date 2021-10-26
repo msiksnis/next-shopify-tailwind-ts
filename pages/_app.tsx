@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import "keen-slider/keen-slider.min.css";
 import { AppProps } from "next/app";
 import { FC } from "react";
 import { UiProvider } from "@components/ui/context";

@@ -31,7 +31,7 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <>
-        <div className="mx-44">
+        <div className="lg:mx-40">
           <Grid>
             {products.slice(0, 3).map((product) => (
               <ProductCard key={product.id} product={product} />
