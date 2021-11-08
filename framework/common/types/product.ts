@@ -21,8 +21,13 @@ export interface ProductOption {
 
 export interface ProductVariant {
   id: string;
+  sku: string;
   name: string;
+  image?: ProductImage;
   options: ProductOption[];
+  requiresShipping: boolean;
+  price: number;
+  listPrice: number;
 }
 
 export interface Product {

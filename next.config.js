@@ -4,6 +4,9 @@ module.exports = withFrameworkConfig({
   framework: {
     name: process.env.NEXT_PUBLIC_FRAMEWORK,
   },
+  images: {
+    domains: ["cdn.shopify.com"],
+  },
   i18n: {
     locales: ["en-US", "es"],
     defaultLocale: "en-US",
